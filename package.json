@@ -1,0 +1,1 @@
+{"name":"neboh-3d-portfolio","version":"1.0.0","private":true,"scripts":{"dev":"npx live-server --port=5173 --open=./index.html"},"devDependencies":{"live-server":"^1.2.2"}}

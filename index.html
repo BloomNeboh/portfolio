@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neboh — One of Ones Portfolio</title>
+  <meta name="description" content="Neboh — dark premium 3D tech portfolio with glassmorphism and neon." />
+  <link rel="stylesheet" href="css/style.css">
+  <!-- GSAP + ScrollTrigger from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js" defer></script>
+</head>
+<body data-theme="dark">
+  <!-- Intro overlay with neon 3D N logo (inline SVG) -->
+  <div id="intro" class="intro" aria-hidden="false">
+    <!-- Neon 3D 'N' logo rendered as SVG with glow layers -->
+    <div class="logo-wrap" aria-hidden="true">
+      <!-- The logo.svg is also in assets for reuse -->
+      <svg id="neb-logo" viewBox="0 0 200 200" class="intro-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Neboh logo">
+        <defs>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </feMerge>
+          </filter>
+        </defs>
+        <rect width="100%" height="100%" fill="none"/>
+        <!-- layered strokes for neon depth -->
+        <path d="M40 30 L120 30 L80 170 L160 170" stroke="#0ef" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.28" transform="translate(0,0)"/>
+        <path d="M40 30 L120 30 L80 170 L160 170" stroke="#06f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow)"/>
+        <path id="N-path" d="M40 30 L120 30 L80 170 L160 170" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="intro-caption">Welcome to my world where rhythm meets service</div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">NEBOH • ONE OF ONES</div>
+      <div class="controls">
+        <button id="downloadBtn" class="btn">Download CV</button>
+        <div class="theme-toggle btn" id="themeToggle" title="Toggle theme" role="switch" aria-checked="false">
+          <div class="theme-knob"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="headline">I build travel stories — design, code & hospitality</h1>
+        <p class="lead">Dark, premium interfaces. Micro-interactions that whisper trust. Interfaces that feel alive.</p>
+        <div class="actions">
+          <a class="btn ghost" href="#work">Explore work</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="hero-right card" id="three-area">
+        <!-- Three.js will mount here for subtle particles & floaters -->
+        <canvas id="three-canvas" aria-hidden="true"></canvas>
+      </div>
+    </section>
+
+    <section id="work" class="panel">
+      <h2>Selected Work</h2>
+      <div class="projects">
+        <article class="project card">
+          <h3>Gladiolus Tours — Booking platform</h3>
+          <p>Branding, UX & payment flows.</p>
+        </article>
+        <article class="project card">
+          <h3>Whispr — Voice assistant</h3>
+          <p>Voice prompts and onboarding for field teams.</p>
+        </article>
+        <article class="project card">
+          <h3>Nyota — UI Toolkit</h3>
+          <p>Design system for rapid prototyping.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="panel">
+      <h2>About — The manifesto</h2>
+      <div class="card">
+        <p>I blend rhythm and service: elegant design, precise code, and hospitality-first thinking.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="panel">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
+        <p>Phone: +255 7XX XXX XXX</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="typing-scroller" aria-hidden="true">
+    <div class="drop" id="drop1"></div>
+    <div class="drop" id="drop2"></div>
+    <div class="drop" id="drop3"></div>
+  </div>
+  <div class="typo" id="typo">Scrolling…</div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Neboh — Built with detail and rhythm.</p>
+    </div>
+  </footer>
+
+  <audio id="s-drop" src="assets/drop.wav" preload="auto"></audio>
+  <audio id="s-typing" src="assets/typing.wav" preload="auto"></audio>
+
+  <script type="module" src="js/three-setup.js"></script>
+  <script type="module" src="js/script.js"></script>
+</body>
+</html>
